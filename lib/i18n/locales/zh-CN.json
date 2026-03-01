@@ -452,5 +452,39 @@
     "zhCN": "简体中文",
     "zhTW": "繁體中文",
     "label": "语言"
+  },
+  "office": {
+    "title": "办公室",
+    "officeMode": "办公室模式",
+    "proMode": "专业模式",
+    "day": "第",
+    "simMode": "模拟",
+    "realMode": "实战",
+    "hire": "招聘",
+    "hireTitle": "招聘新代理",
+    "hireConfirm": "确认招聘",
+    "agentName": "代理名称",
+    "selectRole": "选择角色",
+    "fireAgent": "解雇",
+    "stats": "状态",
+    "financials": "财务",
+    "skills": "技能",
+    "level": "Lv.",
+    "salary": "薪资",
+    "revenue": "收入",
+    "roi": "投资回报率",
+    "tasksCompleted": "已完成任务",
+    "stat": {
+      "performance": "表现",
+      "reliability": "可靠性",
+      "creativity": "创造力"
+    },
+    "mood": {
+      "excellent": "极佳",
+      "good": "良好",
+      "neutral": "一般",
+      "stressed": "紧张",
+      "critical": "危险"
+    }
   }
 }

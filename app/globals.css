@@ -135,3 +135,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ─── Pixel Art Rendering ─── */
+
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.office-canvas canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pixel-font {
+  font-family: 'Courier New', monospace;
+  font-smooth: never;
+  -webkit-font-smoothing: none;
+}

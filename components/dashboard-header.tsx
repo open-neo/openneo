@@ -15,6 +15,7 @@ import {
 import { Languages } from 'lucide-react'
 import { useReadOnlyMode } from '@/lib/store'
 import { useLocale, allLocales, localeNames } from '@/lib/i18n'
+import { ModeToggle } from '@/components/mode-toggle'
 
 export function DashboardHeader({ title }: { title: string; titleEn?: string }) {
   const { readOnly, setReadOnly } = useReadOnlyMode()
@@ -41,6 +42,8 @@ export function DashboardHeader({ title }: { title: string; titleEn?: string }) 
           checked={readOnly}
           onCheckedChange={setReadOnly}
         />
+        <ModeToggle />
+        <Separator orientation="vertical" className="h-5" />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="sm" className="gap-1.5 text-xs">

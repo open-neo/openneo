@@ -452,5 +452,39 @@
     "zhCN": "简体中文",
     "zhTW": "繁體中文",
     "label": "言語"
+  },
+  "office": {
+    "title": "オフィス",
+    "officeMode": "オフィスモード",
+    "proMode": "プロモード",
+    "day": "日目",
+    "simMode": "シミュレーション",
+    "realMode": "リアル",
+    "hire": "採用",
+    "hireTitle": "エージェントを採用",
+    "hireConfirm": "採用する",
+    "agentName": "エージェント名",
+    "selectRole": "役割を選択",
+    "fireAgent": "解雇",
+    "stats": "ステータス",
+    "financials": "財務",
+    "skills": "スキル",
+    "level": "Lv.",
+    "salary": "給与",
+    "revenue": "収益",
+    "roi": "ROI",
+    "tasksCompleted": "完了タスク",
+    "stat": {
+      "performance": "パフォーマンス",
+      "reliability": "信頼性",
+      "creativity": "創造性"
+    },
+    "mood": {
+      "excellent": "絶好調",
+      "good": "好調",
+      "neutral": "普通",
+      "stressed": "ストレス",
+      "critical": "危険"
+    }
   }
 }

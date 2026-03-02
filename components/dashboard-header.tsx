@@ -18,7 +18,7 @@ import { useLocale, allLocales, localeNames } from '@/lib/i18n'
 import { ModeToggle } from '@/components/mode-toggle'
 
 export function DashboardHeader({ title }: { title: string; titleEn?: string }) {
-  const { readOnly, setReadOnly } = useReadOnlyMode()
+  const { readOnly, setReadOnly, isDemo } = useReadOnlyMode()
   const { locale, setLocale, t } = useLocale()
 
   return (
@@ -29,19 +29,27 @@ export function DashboardHeader({ title }: { title: string; titleEn?: string }) 
         <h1 className="text-sm font-semibold">{title}</h1>
       </div>
       <div className="flex items-center gap-2">
-        {readOnly && (
-          <Badge variant="outline" className="text-[10px] border-amber-300 bg-amber-50 text-amber-700">
-            {t('header.readOnlyBadge')}
+        {isDemo ? (
+          <Badge variant="outline" className="text-[10px] border-blue-300 bg-blue-50 text-blue-700 dark:border-blue-600 dark:bg-blue-950 dark:text-blue-300">
+            {t('header.demoBadge')}
           </Badge>
+        ) : (
+          <>
+            {readOnly && (
+              <Badge variant="outline" className="text-[10px] border-amber-300 bg-amber-50 text-amber-700">
+                {t('header.readOnlyBadge')}
+              </Badge>
+            )}
+            <Label htmlFor="readonly-toggle" className="text-xs text-muted-foreground cursor-pointer">
+              {t('header.readOnly')}
+            </Label>
+            <Switch
+              id="readonly-toggle"
+              checked={readOnly}
+              onCheckedChange={setReadOnly}
+            />
+          </>
         )}
-        <Label htmlFor="readonly-toggle" className="text-xs text-muted-foreground cursor-pointer">
-          {t('header.readOnly')}
-        </Label>
-        <Switch
-          id="readonly-toggle"
-          checked={readOnly}
-          onCheckedChange={setReadOnly}
-        />
         <ModeToggle />
         <Separator orientation="vertical" className="h-5" />
         <DropdownMenu>

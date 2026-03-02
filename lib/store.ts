@@ -11,6 +11,16 @@ import type {
   LLMModel,
   NetworkDomain,
 } from './mockData'
+import { isElectron } from './env'
+import {
+  DEMO_AGENTS,
+  DEMO_POLICIES,
+  DEMO_CREDENTIALS,
+  DEMO_ACCESS_REQUESTS,
+  DEMO_AUDIT_LOGS,
+  DEMO_JOBS,
+  DEMO_NETWORK_DOMAINS,
+} from './demo-data'
 
 // ─── localStorage helpers ───
 
@@ -36,24 +46,31 @@ function saveToStorage<T>(key: string, value: T): void {
 
 // ─── Generic persisted-state hook ───
 
-function usePersistedState<T>(key: string, fallback: T) {
-  const [value, setValue] = useState<T>(fallback)
+function usePersistedState<T>(key: string, fallback: T, demoFallback?: T) {
+  const [value, setValue] = useState<T>(demoFallback ?? fallback)
   const [hydrated, setHydrated] = useState(false)
 
   useEffect(() => {
-    setValue(loadFromStorage(key, fallback))
+    if (demoFallback !== undefined && !isElectron()) {
+      // Web with demo data — keep initial demo values
+    } else {
+      setValue(loadFromStorage(key, fallback))
+    }
     setHydrated(true)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key])
 
   const set = useCallback(
     (next: T | ((prev: T) => T)) => {
+      if (demoFallback !== undefined && !isElectron()) return // no-op in demo mode
+
       setValue((prev) => {
         const resolved = typeof next === 'function' ? (next as (p: T) => T)(prev) : next
         saveToStorage(key, resolved)
         return resolved
       })
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [key],
   )
 
@@ -66,6 +83,7 @@ export function useAgents() {
   const [agents, , hydrated] = usePersistedState<Agent[]>(
     'OpenNeo-agents',
     [],
+    DEMO_AGENTS,
   )
   return { agents, hydrated }
 }
@@ -74,6 +92,7 @@ export function usePolicies() {
   const [policies, setPolicies, hydrated] = usePersistedState<Policy[]>(
     'OpenNeo-policies',
     [],
+    DEMO_POLICIES,
   )
 
   const addPolicy = useCallback(
@@ -103,6 +122,7 @@ export function useCredentials() {
   const [credentials, setCredentials, hydrated] = usePersistedState<Credential[]>(
     'OpenNeo-credentials',
     [],
+    DEMO_CREDENTIALS,
   )
 
   const addCredential = useCallback(
@@ -130,6 +150,7 @@ export function useAccessRequests() {
   const [requests, setRequests, hydrated] = usePersistedState<AccessRequest[]>(
     'OpenNeo-requests',
     [],
+    DEMO_ACCESS_REQUESTS,
   )
 
   const updateRequest = useCallback(
@@ -147,6 +168,7 @@ export function useAuditLogs() {
   const [logs, setLogs, hydrated] = usePersistedState<AuditLogEntry[]>(
     'OpenNeo-audit-logs',
     [],
+    DEMO_AUDIT_LOGS,
   )
 
   const addLog = useCallback(
@@ -172,6 +194,7 @@ export function useJobs() {
   const [jobs, setJobs, hydrated] = usePersistedState<Job[]>(
     'OpenNeo-jobs',
     [],
+    DEMO_JOBS,
   )
   return { jobs, setJobs, hydrated }
 }
@@ -188,6 +211,7 @@ export function useNetworkDomains() {
   const [domains, setDomains, hydrated] = usePersistedState<NetworkDomain[]>(
     'OpenNeo-network-domains',
     [],
+    DEMO_NETWORK_DOMAINS,
   )
 
   const addDomain = useCallback(
@@ -218,5 +242,19 @@ export function useReadOnlyMode() {
     'OpenNeo-readonly',
     false,
   )
-  return { readOnly, setReadOnly, hydrated }
+
+  const [isDemo, setIsDemo] = useState(false)
+
+  useEffect(() => {
+    setIsDemo(!isElectron())
+  }, [])
+
+  const noopSet = useCallback((() => {}) as (v: boolean | ((p: boolean) => boolean)) => void, [])
+
+  return {
+    readOnly: isDemo || readOnly,
+    setReadOnly: isDemo ? noopSet : setReadOnly,
+    hydrated,
+    isDemo,
+  }
 }

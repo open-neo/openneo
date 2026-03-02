@@ -17,7 +17,14 @@ export function ModeToggle() {
       variant="ghost"
       size="sm"
       className="gap-1.5 text-xs"
-      onClick={() => router.push(isOffice ? '/dashboard/' : '/office/')}
+      onClick={() => {
+        const target = isOffice ? '/dashboard/' : '/office/'
+        if (typeof window !== 'undefined' && (window as any).electronAPI) {
+          window.location.href = target
+        } else {
+          router.push(target)
+        }
+      }}
     >
       {isOffice ? (
         <>

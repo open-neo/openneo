@@ -25,7 +25,8 @@
   },
   "header": {
     "readOnly": "Read-only",
-    "readOnlyBadge": "Read-only"
+    "readOnlyBadge": "Read-only",
+    "demoBadge": "Demo"
   },
   "nav": {
     "download": "Download",

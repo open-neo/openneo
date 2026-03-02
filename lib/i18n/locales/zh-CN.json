@@ -25,7 +25,8 @@
   },
   "header": {
     "readOnly": "Read-only",
-    "readOnlyBadge": "只读"
+    "readOnlyBadge": "只读",
+    "demoBadge": "演示"
   },
   "nav": {
     "download": "Download",

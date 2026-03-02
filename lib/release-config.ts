@@ -1,4 +1,4 @@
-export const RELEASE_VERSION = '0.2.0'
+export const RELEASE_VERSION = '0.3.0'
 export const GITHUB_REPO = 'open-neo/openneo'
 export const STORAGE_BUCKET = 'open-neo.firebasestorage.app'
 

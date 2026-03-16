@@ -48,7 +48,10 @@
     "security": "安全性",
     "securityConsole": "Security Console",
     "system": "系統",
-    "version": "OpenNeo Security Console v0.1"
+    "version": "OpenNeo Security Console v0.1",
+    "ai": "AI",
+    "claudeChat": "Claude 聊天",
+    "claudeSettings": "Claude 設定"
   },
   "footer": {
     "download": "Download",
@@ -453,6 +456,41 @@
     "zhCN": "简体中文",
     "zhTW": "繁體中文",
     "label": "語言"
+  },
+  "claude": {
+    "setup": {
+      "title": "設定 Claude API",
+      "description": "輸入您的 Anthropic API 金鑰，開始與 Claude 聊天。金鑰僅儲存在本地，不會傳送到我們的伺服器。",
+      "goToSettings": "前往設定"
+    },
+    "chat": {
+      "title": "Claude 聊天",
+      "conversations": "對話",
+      "noConversations": "尚無對話",
+      "emptyState": "開始與 Claude 對話",
+      "inputPlaceholder": "輸入訊息...",
+      "maxTokens": "最大令牌數"
+    },
+    "settings": {
+      "title": "Claude 設定",
+      "apiToken": "API 令牌",
+      "apiTokenDesc": "您的 Anthropic API 金鑰。僅儲存在本地，不會傳送到我們的伺服器。",
+      "token": "API 金鑰",
+      "validate": "驗證",
+      "validateSuccess": "令牌有效！已儲存。",
+      "invalidPrefix": "API 金鑰必須以 sk-ant- 開頭",
+      "pinEncryption": "PIN 加密",
+      "pinEncryptionDesc": "使用4位以上 PIN 加密令牌",
+      "pinPlaceholder": "4位以上 PIN",
+      "enterPin": "輸入 PIN 解鎖",
+      "unlock": "解鎖",
+      "wrongPin": "PIN 不正確",
+      "modelSettings": "模型設定",
+      "model": "模型",
+      "maxTokens": "最大令牌數",
+      "systemPrompt": "系統提示",
+      "systemPromptPlaceholder": "給 Claude 的選用指示..."
+    }
   },
   "office": {
     "title": "辦公室",

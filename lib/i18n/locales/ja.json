@@ -48,7 +48,10 @@
     "monitor": "モニター",
     "security": "セキュリティ",
     "securityConsole": "Security Console",
-    "version": "OpenNeo Security Console v0.1"
+    "version": "OpenNeo Security Console v0.1",
+    "ai": "AI",
+    "claudeChat": "Claude チャット",
+    "claudeSettings": "Claude 設定"
   },
   "footer": {
     "download": "Download",
@@ -453,6 +456,41 @@
     "zhCN": "简体中文",
     "zhTW": "繁體中文",
     "label": "言語"
+  },
+  "claude": {
+    "setup": {
+      "title": "Claude API のセットアップ",
+      "description": "Anthropic の API キーを入力して Claude とチャットを始めましょう。キーはローカルにのみ保存され、サーバーには送信されません。",
+      "goToSettings": "設定へ移動"
+    },
+    "chat": {
+      "title": "Claude チャット",
+      "conversations": "チャット",
+      "noConversations": "会話がまだありません",
+      "emptyState": "Claude と会話を始めましょう",
+      "inputPlaceholder": "メッセージを入力...",
+      "maxTokens": "最大トークン"
+    },
+    "settings": {
+      "title": "Claude 設定",
+      "apiToken": "API トークン",
+      "apiTokenDesc": "Anthropic API キー。ローカルにのみ保存され、サーバーには送信されません。",
+      "token": "API キー",
+      "validate": "検証",
+      "validateSuccess": "トークンは有効です！保存しました。",
+      "invalidPrefix": "API キーは sk-ant- で始まる必要があります",
+      "pinEncryption": "PIN 暗号化",
+      "pinEncryptionDesc": "4桁以上の PIN でトークンを暗号化",
+      "pinPlaceholder": "4桁以上の PIN",
+      "enterPin": "PIN を入力してロック解除",
+      "unlock": "ロック解除",
+      "wrongPin": "PIN が正しくありません",
+      "modelSettings": "モデル設定",
+      "model": "モデル",
+      "maxTokens": "最大トークン",
+      "systemPrompt": "システムプロンプト",
+      "systemPromptPlaceholder": "Claude への指示（オプション）..."
+    }
   },
   "office": {
     "title": "オフィス",

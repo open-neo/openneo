@@ -14,6 +14,8 @@ import {
   Cpu,
   Globe,
   Monitor,
+  MessageSquare,
+  Settings,
 } from 'lucide-react'
 import {
   Sidebar,
@@ -62,6 +64,20 @@ const monitorItems = [
     href: '/dashboard/system',
     label: 'sidebar.system',
     icon: Monitor,
+  },
+]
+
+const aiItems = [
+  {
+    href: '/dashboard/claude',
+    label: 'sidebar.claudeChat',
+    icon: MessageSquare,
+    exact: true,
+  },
+  {
+    href: '/dashboard/claude/settings',
+    label: 'sidebar.claudeSettings',
+    icon: Settings,
   },
 ]
 
@@ -147,6 +163,12 @@ export function DashboardSidebar() {
           <SidebarGroupLabel>{t('sidebar.monitor')}</SidebarGroupLabel>
           <SidebarGroupContent>
             {renderItems(monitorItems)}
+          </SidebarGroupContent>
+        </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel>{t('sidebar.ai')}</SidebarGroupLabel>
+          <SidebarGroupContent>
+            {renderItems(aiItems)}
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>

@@ -48,7 +48,10 @@
     "monitor": "Monitor",
     "security": "Security",
     "securityConsole": "Security Console",
-    "version": "OpenNeo Security Console v0.1"
+    "version": "OpenNeo Security Console v0.1",
+    "ai": "AI",
+    "claudeChat": "Claude Chat",
+    "claudeSettings": "Claude Settings"
   },
   "footer": {
     "download": "Download",
@@ -453,6 +456,41 @@
     "zhCN": "简体中文",
     "zhTW": "繁體中文",
     "label": "Language"
+  },
+  "claude": {
+    "setup": {
+      "title": "Set Up Claude API",
+      "description": "Enter your Anthropic API key to start chatting with Claude. Your key is stored locally and never sent to our servers.",
+      "goToSettings": "Go to Settings"
+    },
+    "chat": {
+      "title": "Claude Chat",
+      "conversations": "Chats",
+      "noConversations": "No conversations yet",
+      "emptyState": "Start a conversation with Claude",
+      "inputPlaceholder": "Type a message...",
+      "maxTokens": "Max tokens"
+    },
+    "settings": {
+      "title": "Claude Settings",
+      "apiToken": "API Token",
+      "apiTokenDesc": "Your Anthropic API key. Stored locally only — never sent to our servers.",
+      "token": "API Key",
+      "validate": "Validate",
+      "validateSuccess": "Token is valid! Saved.",
+      "invalidPrefix": "API key must start with sk-ant-",
+      "pinEncryption": "PIN Encryption",
+      "pinEncryptionDesc": "Encrypt your token with a 4+ digit PIN",
+      "pinPlaceholder": "4+ digit PIN",
+      "enterPin": "Enter PIN to unlock",
+      "unlock": "Unlock",
+      "wrongPin": "Incorrect PIN",
+      "modelSettings": "Model Settings",
+      "model": "Model",
+      "maxTokens": "Max Tokens",
+      "systemPrompt": "System Prompt",
+      "systemPromptPlaceholder": "Optional instructions for Claude..."
+    }
   },
   "office": {
     "title": "Office",

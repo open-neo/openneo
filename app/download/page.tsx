@@ -36,7 +36,7 @@ export default function DownloadPage() {
         return res.json()
       })
       .then(release => {
-        const ver = (release.tag_name as string).replace(/^v/, '')
+        const ver = (release.tag_name as string).replace(/^v/, '').replace(/-(develop|release)$/, '')
         const dmg = (release.assets as Array<{ name: string; browser_download_url: string }>)
           .find(a => a.name.endsWith('-arm64.dmg'))
         setVersion(ver)
